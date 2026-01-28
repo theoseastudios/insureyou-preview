@@ -228,6 +228,59 @@ nav a{
   }
 }
 
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  text-decoration: none;
+  color: #000030;
+  font-weight: 500;
+  padding: 0;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+/* Individual links inside dropdown */
+.dropdown-content a {
+  color: #000030;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Optional: add little arrow */
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 5px;
+}
 
 /* CTA */
 .cta{
@@ -258,16 +311,24 @@ footer{
 <header>
   <div class="logo">
     <a href="index.html">
-  <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
-</a>
+      <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
+    </a>
   </div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="insurances.html">Insurances</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <!-- Dropdown for Insurances -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Insurances</a>
+      <div class="dropdown-content">
+        <a href="life-insurance.html">Life Insurance</a>
+        <a href="income-protection.html">Income Protection</a>
+        <a href="tpd-insurance.html">Total & Permanent Disability</a>
+        <a href="critical-illness.html">Trauma (Critical Illness)</a>
+      </div>
+    </div>
     <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn-main">Get a Quote</a>
   </nav>
 </header>
