@@ -148,6 +148,61 @@ nav a{
 }
 
 
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  text-decoration: none;
+  color: #000030;
+  font-weight: 500;
+  padding: 0;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+/* Individual links inside dropdown */
+.dropdown-content a {
+  color: #000030;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Optional: add little arrow */
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+
 /* CTA */
 .cta{
   padding:80px;
@@ -162,12 +217,111 @@ nav a{
 }
 
 /* FOOTER */
-footer{
-  background:#000030;
-  color:#aaa;
-  text-align:center;
-  padding:40px;
+footer {
+  background: #000030;
+  color: #aaa;
+  font-family: "Inter", sans-serif;
+  padding: 60px 20px 20px;
 }
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top section */
+.footer-top {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-top .footer-logo img {
+  height: 80px;
+  max-width: 200px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Middle section: 3 columns centered */
+.footer-middle {
+  display: flex;
+  justify-content: center; /* centers all columns horizontally */
+  gap: 60px; /* space between columns */
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-middle div {
+  flex: 0 1 200px; /* fixed min width but allows wrapping */
+  text-align: left; /* center content inside each column */
+}
+
+
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-links a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #02D9C5;
+}
+
+.footer-contact p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.footer-social .social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social .social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Bottom section */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-middle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-middle div {
+    margin-bottom: 25px;
+  }
+}
+
 
 /* Responsive */
 @media(max-width:900px){
@@ -183,16 +337,24 @@ footer{
 <header>
   <div class="logo">
     <a href="index.html">
-  <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
-</a>
+      <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
+    </a>
   </div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="insurances.html">Insurances</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <!-- Dropdown for Insurances -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Insurances</a>
+      <div class="dropdown-content">
+        <a href="life-insurance.html">Life Insurance</a>
+        <a href="income-protection.html">Income Protection</a>
+        <a href="tpd-insurance.html">Total & Permanent Disability</a>
+        <a href="critical-illness.html">Trauma (Critical Illness)</a>
+      </div>
+    </div>
     <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn-main">Get a Quote</a>
   </nav>
 </header>
@@ -206,7 +368,7 @@ footer{
 
 <section class="contact-section">
   <div class="contact-info">
-    <h2>Our Contact Details</h2>
+    <h2>Insureyou Advisory</h2>
     <p><strong>Phone:</strong> +61 123 456 789</p>
     <p><strong>Email:</strong> protect@insureyouadvisory.com.au</p>
     <p><strong>Address:</strong> 12/42 King Street, Airport West VIC 3042</p>
@@ -232,38 +394,55 @@ footer{
 </section>
 
 <footer>
-  <div style="max-width:1200px; margin:0 auto; padding:40px 20px; color:#aaa; text-align:center;">
-    <!-- Logo -->
-    <div style="margin-bottom:20px; text-align:center;">
-  <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo" style="height:80px; max-width:200px;">
-</div>
+  <div class="footer-container">
 
+    <!-- Top: Logo & Brief -->
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo">
+      </div>
+      <p class="footer-description">
+        Insureyou Advisory (ABN 21 891 330 783) operates under general advice only. We provide education and options to help you make informed decisions, but cannot give personal advice. All information on this website is for general purposes only.
+      </p>
+    </div>
 
-    <!-- Contact Info -->
-    <p>
-      12/42 King Street, Airport West VIC 3042<br>
-      01 2345 6789 | protect@insureyouadvisory.com.au<br>
-      9am to 5pm AEST
-    </p>
+    <!-- Middle: Links & Contact Info -->
+    <div class="footer-middle">
 
-    <!-- Disclaimer -->
-    <p style="font-size:0.85rem; margin:20px 0;">
-      Insureyou Advisory (ABN XX XXX XXX XXX) operates under Insure Solutions Pty Ltd (AFSL XXXXXXX) and can only give general advice about Personal Insurance. This means we provide information to help you make good decisions but cannot give personal advice or recommendations. Everything on this website is general information only.
-    </p>
-    <p style="font-size:0.85rem; margin-bottom:20px;">
-      Each insurer we partner with has its own terms and conditions. Please review the relevant insurer’s Product Disclosure Statement to see if their products meet your needs.
-    </p>
+      <!-- Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="fsg.html">Financial Services Guide</a>
+        <a href="pds.html">Product Disclosure Statements</a>
+      </div>
 
-    <!-- Legal Links -->
-    <p>
-      <a href="privacy-policy.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Privacy Policy</a> |
-      <a href="terms.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Terms and Conditions</a> |
-      <a href="fsg.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Financial Services Guide</a> |
-      <a href="pds.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Product Disclosure Statements</a>
-    </p>
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>12/42 King Street, Airport West VIC 3042 (By appointment only)</p>
+        <p>01 2345 6789 | protect@insureyouadvisory.com.au</p>
+        <p>Mon-Fri 9am to 5pm AEST</p>
+      </div>
 
-    <!-- Copyright -->
-    <p style="margin-top:20px;">© 2026 Insureyou Advisory. All rights reserved.</p>
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom: Copyright -->
+    <div class="footer-bottom">
+      <p>© 2026 Insureyou Advisory. All rights reserved.</p>
+    </div>
+
   </div>
 </footer>
 
