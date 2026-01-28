@@ -115,6 +115,61 @@ nav a{
 }
 
 
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  text-decoration: none;
+  color: #000030;
+  font-weight: 500;
+  padding: 0;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+/* Individual links inside dropdown */
+.dropdown-content a {
+  color: #000030;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Optional: add little arrow */
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+
 /* CTA */
 .cta{
   padding:80px;
@@ -129,11 +184,109 @@ nav a{
 }
 
 /* FOOTER */
-footer{
-  background:#000030;
-  color:#aaa;
-  text-align:center;
-  padding:40px;
+footer {
+  background: #000030;
+  color: #aaa;
+  font-family: "Inter", sans-serif;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top section */
+.footer-top {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-top .footer-logo img {
+  height: 80px;
+  max-width: 200px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Middle section: 3 columns centered */
+.footer-middle {
+  display: flex;
+  justify-content: center; /* centers all columns horizontally */
+  gap: 60px; /* space between columns */
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-middle div {
+  flex: 0 1 200px; /* fixed min width but allows wrapping */
+  text-align: left; /* center content inside each column */
+}
+
+
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-links a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #02D9C5;
+}
+
+.footer-contact p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.footer-social .social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social .social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Bottom section */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-middle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-middle div {
+    margin-bottom: 25px;
+  }
 }
 </style>
 </head>
@@ -143,24 +296,33 @@ footer{
 <header>
   <div class="logo">
     <a href="index.html">
-  <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
-</a>
+      <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
+    </a>
   </div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="insurances.html">Insurances</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <!-- Dropdown for Insurances -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Insurances</a>
+      <div class="dropdown-content">
+        <a href="life-insurance.html">Life Insurance</a>
+        <a href="income-protection.html">Income Protection</a>
+        <a href="tpd-insurance.html">Total & Permanent Disability</a>
+        <a href="critical-illness.html">Trauma (Critical Illness)</a>
+      </div>
+    </div>
     <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn-main">Get a Quote</a>
   </nav>
 </header>
 
 <section class="hero">
   <div>
-    <h1>Our Trusted Partners</h1>
-    <p>We work closely with leading insurance providers to ensure the best solutions for our clients.</p>
+    <h1>Big brands. Better advice.</h1>
+    <p>We partner with Australia’s top-rated insurers to give you choice, not a sales pitch.</p> 
+<p>We don't work for them; we work for you. We make these companies compete for your business to ensure you get the best coverage at the best price.</p>
   </div>
 </section>
 
@@ -198,63 +360,146 @@ footer{
   <p style="margin-top:30px; color:#555;">We are proud to collaborate with these companies to deliver tailored insurance solutions for our clients.</p>
 </section>
 
+<!-- WHY THESE PARTNERS SECTION -->
+<section style="background:#f7f9ff; padding:80px 20px; width:100%;">
+  <div style="max-width:1100px; margin:0 auto;">
+    
+    <h2 style="font-size:32px; color:#146DFF; text-align:center; margin-bottom:50px;">Why These Partners?</h2>
 
-<section class="cta">
-  <h2>Want to Become a Partner?</h2>
-  <a href="contact.html" class="btn-main">Contact Us Today</a>
+    <div style="display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+
+      <!-- Card 1 -->
+      <div style="flex:1 1 48%; background:white; padding:35px; border-radius:14px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px;">
+        <h3 style="color:#000030; margin-bottom:15px;">✅ They Actually Pay Out</h3>
+        <p style="line-height:1.7; color:#333;">
+          We check claims data carefully. If an insurer has a history of dodging claims or hiding behind fine print, we don’t recommend them. Period.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="flex:1 1 48%; background:white; padding:35px; border-radius:14px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px;">
+        <h3 style="color:#000030; margin-bottom:15px;">💪 A-Rated Financial Strength</h3>
+        <p style="line-height:1.7; color:#333;">
+          We only work with financially secure companies that will be around 20 years from now, keeping your promises for the future intact.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="flex:1 1 48%; background:white; padding:35px; border-radius:14px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px;">
+        <h3 style="color:#000030; margin-bottom:15px;">📋 Quality Definitions</h3>
+        <p style="line-height:1.7; color:#333;">
+          Price isn’t everything. We partner with insurers offering strong definitions like "Own Occupation" and comprehensive medical coverage—not cheap policies full of loopholes.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div style="flex:1 1 48%; background:white; padding:35px; border-radius:14px; box-shadow:0 8px 20px rgba(0,0,0,0.08); min-width:250px;">
+        <h3 style="color:#000030; margin-bottom:15px;">⚖️ Zero Favorites</h3>
+        <p style="line-height:1.7; color:#333;">
+          We are 100% independent. Our partners don’t own us, and we don’t own them. Equal commissions mean we only push policies that fit your life and budget.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
+<!-- Optional hover effect for cards -->
+<style>
+  section div[style*="box-shadow"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+  }
+</style>
+
+
+
+<!-- FINAL CTA: READY TO COMPARE -->
+<section style="background:linear-gradient(135deg,#02D9C5,#146DFF,#AD89FF); padding:80px 20px; width:100%;">
+  <div style="
+    max-width:900px;
+    margin:0 auto;
+    background:#ffffff;
+    padding:50px 40px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:center;
+  ">
+    <h2 style="font-size:32px; margin-bottom:20px; color:#000030;">
+      Ready to compare the market?
+    </h2>
+
+    <p style="
+      font-size:18px;
+      line-height:1.7;
+      margin-bottom:35px;
+      color:#333;
+      max-width:760px;
+      margin-left:auto;
+      margin-right:auto;
+    ">
+      Don’t waste time visiting 9 different websites. We compare them all in one place, so you can find the right policy quickly and confidently.
+    </p>
+
+    <a href="contact.html" class="btn-main">Get a Tailored Quote</a>
+  </div>
+</section>
+
+
 <footer>
-  <div style="max-width:1200px; margin:0 auto; padding:40px 20px; color:#aaa; text-align:center;">
-    <!-- Logo -->
-    <div style="margin-bottom:20px; text-align:center;">
-  <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo" style="height:80px; max-width:200px;">
-</div>
+  <div class="footer-container">
 
+    <!-- Top: Logo & Brief -->
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo">
+      </div>
+      <p class="footer-description">
+        Insureyou Advisory (ABN 21 891 330 783) operates under general advice only. We provide education and options to help you make informed decisions, but cannot give personal advice. All information on this website is for general purposes only.
+      </p>
+    </div>
 
-    <!-- Contact Info -->
-    <p>
-      12/42 King Street, Airport West VIC 3042<br>
-      01 2345 6789 | protect@insureyouadvisory.com.au<br>
-      9am to 5pm AEST
-    </p>
+    <!-- Middle: Links & Contact Info -->
+    <div class="footer-middle">
 
-    <!-- Disclaimer -->
-    <p style="font-size:0.85rem; margin:20px 0;">
-      Insureyou Advisory (ABN XX XXX XXX XXX) operates under Insure Solutions Pty Ltd (AFSL XXXXXXX) and can only give general advice about Personal Insurance. This means we provide information to help you make good decisions but cannot give personal advice or recommendations. Everything on this website is general information only.
-    </p>
-    <p style="font-size:0.85rem; margin-bottom:20px;">
-      Each insurer we partner with has its own terms and conditions. Please review the relevant insurer’s Product Disclosure Statement to see if their products meet your needs.
-    </p>
+      <!-- Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="fsg.html">Financial Services Guide</a>
+        <a href="pds.html">Product Disclosure Statements</a>
+      </div>
 
-    <!-- Legal Links -->
-    <p>
-      <a href="privacy-policy.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Privacy Policy</a> |
-      <a href="terms.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Terms and Conditions</a> |
-      <a href="fsg.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Financial Services Guide</a> |
-      <a href="pds.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Product Disclosure Statements</a>
-    </p>
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>12/42 King Street, Airport West VIC 3042 (By appointment only)</p>
+        <p>01 2345 6789 | protect@insureyouadvisory.com.au</p>
+        <p>Mon-Fri 9am to 5pm AEST</p>
+      </div>
 
-<!-- Social Media -->
-<div style="margin:20px 0;">
-<h3>FOLLOW US</h3><br>
-  <a href="https://www.facebook.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/facebook.png" alt="Facebook" style="width:32px; height:32px;">
-  </a>
-  <a href="https://www.instagram.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/instagram.png" alt="Instagram" style="width:32px; height:32px;">
-  </a>
-  <a href="https://www.linkedin.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/linkedin.png" alt="LinkedIn" style="width:32px; height:32px;">
-  </a>
-</div>
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+      </div>
 
+    </div>
 
-    <!-- Copyright -->
-    <p style="margin-top:20px;">© 2026 Insureyou Advisory. All rights reserved.</p>
+    <!-- Bottom: Copyright -->
+    <div class="footer-bottom">
+      <p>© 2026 Insureyou Advisory. All rights reserved.</p>
+    </div>
+
   </div>
 </footer>
-
 
 
 </body>
