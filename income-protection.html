@@ -121,6 +121,60 @@ nav a{
   text-align:center;
 }
 
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  text-decoration: none;
+  color: #000030;
+  font-weight: 500;
+  padding: 0;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+/* Individual links inside dropdown */
+.dropdown-content a {
+  color: #000030;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Optional: add little arrow */
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
 /* CTA */
 .cta{
   padding:80px;
@@ -135,11 +189,109 @@ nav a{
 }
 
 /* FOOTER */
-footer{
-  background:#000030;
-  color:#aaa;
-  text-align:center;
-  padding:40px;
+footer {
+  background: #000030;
+  color: #aaa;
+  font-family: "Inter", sans-serif;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top section */
+.footer-top {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-top .footer-logo img {
+  height: 80px;
+  max-width: 200px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Middle section: 3 columns centered */
+.footer-middle {
+  display: flex;
+  justify-content: center; /* centers all columns horizontally */
+  gap: 60px; /* space between columns */
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-middle div {
+  flex: 0 1 200px; /* fixed min width but allows wrapping */
+  text-align: left; /* center content inside each column */
+}
+
+
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-links a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #02D9C5;
+}
+
+.footer-contact p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.footer-social .social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social .social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Bottom section */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-middle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-middle div {
+    margin-bottom: 25px;
+  }
 }
 </style>
 </head>
@@ -149,126 +301,402 @@ footer{
 <header>
   <div class="logo">
     <a href="index.html">
-  <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
-</a>
+      <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
+    </a>
   </div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="insurances.html">Insurances</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <!-- Dropdown for Insurances -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Insurances</a>
+      <div class="dropdown-content">
+        <a href="life-insurance.html">Life Insurance</a>
+        <a href="income-protection.html">Income Protection</a>
+        <a href="tpd-insurance.html">Total & Permanent Disability</a>
+        <a href="critical-illness.html">Trauma (Critical Illness)</a>
+      </div>
+    </div>
     <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn-main">Get a Quote</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-text">
-    <h1>Income Protection Insurance</h1>
-    <p>Protect your income if you are unable to work due to illness or injury. Maintain your lifestyle and financial commitments.</p>
+    <h1>Keep the money coming in.</h1>
+    <p>If you can't work due to sickness or injury, Income Protection replaces up to 70% of your salary. It’s not just insurance; it’s a salary safety net.</p><br>
+<a href="contact.html" class="btn-main">Get a Quote</a>
   </div>
   <div class="hero-image">Hero Image Placeholder</div>
 </section>
 
-<section class="section">
-  <h2>Why Income Protection Matters</h2>
-  <div class="benefits-grid">
-    <div class="benefit-card">
-      <h3>Replace Lost Income</h3>
-      <p>Receive a monthly benefit to replace a portion of your income if you can’t work.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Cover Essential Expenses</h3>
-      <p>Pay bills, mortgage, and everyday costs while recovering from illness or injury.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Flexible Terms</h3>
-      <p>Choose waiting periods and benefit lengths that suit your needs and budget.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Peace of Mind</h3>
-      <p>Focus on recovery while your insurance helps maintain your financial stability.</p>
-    </div>
+<!-- INCOME PROTECTION SECTION -->
+<section style="background:#ffffff; padding:80px 20px; width:100%;">
+  <div style="max-width:900px; margin:0 auto; background:white; padding:40px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left;">
+    
+    <h2 style="font-size:32px; color:#146DFF; margin-bottom:20px; text-align:center;">Sick leave runs out. The mortgage doesn't.</h2>
+    
+    <p style="font-size:18px; line-height:1.6; margin-bottom:30px;">
+      Most Aussies have a few weeks of sick leave saved up. But if you’re off work for months (or years) recovering from an accident or illness, savings dry up fast.
+    </p>
+    
+    <p style="font-size:18px; line-height:1.6; margin-bottom:30px;">
+      Income Protection ensures your lifestyle doesn't crash just because your health does. It pays you a monthly benefit so you can focus on getting better, not on how to pay the bills.
+    </p>
+    
+    <h3 style="font-size:24px; color:#02D9C5; margin-bottom:15px;">What it actually does:</h3>
+    <ul style="list-style:none; padding-left:0; line-height:1.8; font-size:16px;">
+      <li>✅ <strong>Pays a monthly wage:</strong> Up to 70% of your pre-tax income, paid monthly.</li>
+      <li>✅ <strong>Covers the essentials:</strong> Keeps the mortgage paid, the lights on, and the fridge full.</li>
+      <li>✅ <strong>Protects your credit:</strong> Ensures you don't miss loan repayments while you recover.</li>
+      <li>✅ <strong>Tax-Deductible:</strong> In most cases, the premiums you pay are 100% tax-deductible.</li>
+    </ul>
+
   </div>
 </section>
 
-<section class="section gray-bg">
-  <h2>What is Income Protection Insurance?</h2>
-  <p>Income Protection Insurance helps cover your income if you’re unable to work because of an illness, injury, or accident. It provides a regular monthly payment after a waiting period you choose, and continues until you’re able to return to work or until the benefit period ends.</p>
+<!-- HOW IT WORKS SECTION -->
+<section style="background:#f7f9ff; padding:80px 20px; width:100%;">
+  <div style="max-width:900px; margin:0 auto; background:white; padding:40px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left;">
+    
+    <h2 style="font-size:32px; color:#146DFF; margin-bottom:20px; text-align:center;">How It Works</h2>
+    
+    <p style="font-size:18px; line-height:1.6; margin-bottom:30px;">
+      You don't need a degree to understand this. It works like a substitute salary.
+    </p>
+    
+    <ol style="line-height:1.8; font-size:16px; padding-left:20px; margin-bottom:0;">
+      <li><strong>You get sick or injured:</strong> You can't work. Your doctor signs you off.</li>
+      <li><strong>The Waiting Period:</strong> You live off your savings or sick leave for a set time (usually 30, 60, or 90 days).</li>
+      <li><strong>The Money Hits:</strong> The insurer starts paying your monthly benefit.</li>
+      <li><strong>You Recover:</strong> You get paid until you are well enough to return to work, or until your benefit period ends (e.g., 2 years or age 65).</li>
+    </ol>
 
-<p>Unless your policy says otherwise, you’re generally covered for any condition—physical or mental—that stops you from working.<p>
-
-<p>Most policies can replace up to 70% of your pre-tax income, with some offering up to 90% for the first six months of a claim.</p>
-
-<p>You can also choose options that continue your superannuation contributions, helping protect your long-term financial future if you’re off work for an extended time.</p>
+  </div>
 </section>
 
-<section class="section">
-  <h2>How Monthly Benefits Actually Work</h2>
-  <p>If something stops you from working the way you normally do, income protection helps keep your income ticking along. Even if you’re able to go back part-time or take on lighter duties, the benefit can help cover the gap while you recover.</p>
 
-<p>You’ll also decide how long payments could last. Some people choose short-term cover for peace of mind, while others want longer protection that can run right through to retirement age. What’s available depends on factors like your job, age, and health history.</p>
+<!-- LIFE INSURANCE VS INCOME PROTECTION -->
+<section style="background:#ffffff; padding:80px 20px; width:100%;">
+  <div style="max-width:900px; margin:0 auto; background:#f7f9ff; padding:40px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left;">
+    
+    <h2 style="font-size:32px; color:#146DFF; margin-bottom:20px; text-align:center;">Life Insurance vs. Income Protection</h2>
+    
+    <p style="font-size:18px; line-height:1.6; margin-bottom:15px;">
+      People often get these mixed up. Here is the difference:
+    </p>
+    
+    <ul style="font-size:16px; line-height:1.8; padding-left:20px; margin-bottom:0;">
+      <li><strong>Life Insurance:</strong> Pays a lump sum if you die. It’s for the people you leave behind.</li>
+      <li><strong>Income Protection:</strong> Pays a monthly salary if you are sick or injured. It’s for you, while you are still here.</li>
+    </ul>
 
-<p>There’s a waiting period before payments begin. This is simply the time between when you’re unable to work and when your benefit starts. Once that period ends, payments build up day by day and are paid monthly. Choosing a longer wait can sometimes help reduce the cost of cover.</p>
+  </div>
+</section>
 
-<p>The cost of income protection is often tax-deductible, which makes it a practical way to protect your income. In many cases, premiums can also be paid through your super fund, including industry or employer super accounts.</p>
+<!-- WHAT WE LOOK FOR - HORIZONTAL CARDS -->
+<section style="background:#f7f9ff; padding:80px 20px; width:100%;">
+  <div style="max-width:1200px; margin:0 auto; text-align:center;">
+    
+    <h2 style="font-size:32px; color:#146DFF; margin-bottom:40px;">What We Look For</h2>
+    <p style="font-size:18px; line-height:1.6; margin-bottom:50px; max-width:800px; margin-left:auto; margin-right:auto;">
+      Buying this off the shelf is risky. We check the fine print so you don't get caught out. Here is what matters:
+    </p>
+    
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
+      
+      <!-- Card 1 -->
+      <div style="flex:1 1 22%; background:white; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left; transition:0.3s; min-width:220px;">
+        <h3 style="color:#146DFF; margin-bottom:15px;">1. The Waiting Period</h3>
+        <p><strong>The Question:</strong> How long can you survive on savings? 30 days? 90 days?</p>
+        <p><strong>The Fix:</strong> A longer waiting period lowers your premium significantly. We help you find the sweet spot between "saving money" and "going broke."</p>
+      </div>
+      
+      <!-- Card 2 -->
+      <div style="flex:1 1 22%; background:white; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left; transition:0.3s; min-width:220px;">
+        <h3 style="color:#146DFF; margin-bottom:15px;">2. The Benefit Period</h3>
+        <p><strong>The Question:</strong> If you are permanently disabled, do you want to be paid for 2 years or until you turn 65?</p>
+        <p><strong>The Fix:</strong> Most cheap policies stop paying after 2 years. We generally recommend coverage to age 65 for long-term security.</p>
+      </div>
+      
+      <!-- Card 3 -->
+      <div style="flex:1 1 22%; background:white; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left; transition:0.3s; min-width:220px;">
+        <h3 style="color:#146DFF; margin-bottom:15px;">3. Indemnity Value</h3>
+        <p><strong>The Reality:</strong> Modern policies are "Indemnity" based. This means you have to prove your income at the time of the claim.</p>
+        <p><strong>The Fix:</strong> We make sure you have the right documentation ready to go so there are no surprises when you claim.</p>
+      </div>
+      
+      <!-- Card 4 -->
+      <div style="flex:1 1 22%; background:white; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left; transition:0.3s; min-width:220px;">
+        <h3 style="color:#146DFF; margin-bottom:15px;">4. Stepped vs. Level Premiums</h3>
+        <p><strong>The Choice:</strong> "Stepped" premiums start cheap but get expensive as you age. "Level" premiums start higher but stay consistent.</p>
+        <p><strong>The Fix:</strong> We calculate the long-term cost to see which one saves you money over the life of the policy.</p>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<!-- Optional hover effect for cards -->
+<style>
+  section div[style*="box-shadow"]:hover {
+    transform: translateY(-5px);
+    box-shadow:0 12px 28px rgba(0,0,0,0.12);
+  }
+</style>
+
+
+<!-- WHY USE US -->
+<section style="background:#ffffff; padding:80px 20px; width:100%;">
+  <div style="max-width:1100px; margin:0 auto;">
+
+    <h2 style="font-size:32px; color:#146DFF; text-align:center; margin-bottom:50px;">
+      Why Use Us?
+    </h2>
+
+    <div style="display:flex; flex-wrap:wrap; gap:30px;">
+
+      <!-- Card 1 -->
+      <div style="flex:1 1 48%; background:#f7f9ff; padding:40px; border-radius:14px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+        <h3 style="color:#000030; margin-bottom:15px;">🔍 We Find the Loopholes</h3>
+        <p style="line-height:1.7; color:#333;">
+          Insurers love exclusions (like <em>“we won’t cover that old back injury”</em>). 
+          We dig into the fine print, negotiate definitions, and fight to get you the
+          cleanest policy with the fairest terms — before you ever sign anything.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="flex:1 1 48%; background:#f7f9ff; padding:40px; border-radius:14px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+        <h3 style="color:#000030; margin-bottom:15px;">🛟 We Handle the Claim</h3>
+        <p style="line-height:1.7; color:#333;">
+          Proving income loss involves a mountain of paperwork and endless back-and-forth
+          with insurers. If you need to claim, we manage the entire process — chasing the
+          insurer and making sure your monthly payments start flowing as fast as possible.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Hover effect -->
+<style>
+  section div[style*="box-shadow"]:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+  }
+</style>
+
+
+<!-- FAQ SECTION -->
+<section style="background:#f7f9ff; padding:80px 20px; width:100%;">
+  <div style="max-width:900px; margin:0 auto;">
+
+    <h2 style="font-size:32px; color:#146DFF; text-align:center; margin-bottom:50px;">
+      Frequently Asked Questions
+    </h2>
+
+    <!-- FAQ Item -->
+    <div class="faq-item">
+      <button class="faq-question">
+        Is Income Protection tax deductible?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Generally, yes. If your policy is held outside of Superannuation, the premiums
+          are usually tax deductible. This can significantly reduce the real cost of cover.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ Item -->
+    <div class="faq-item">
+      <button class="faq-question">
+        Does Income Protection cover redundancy?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          No. Income Protection only covers medical inability to work due to sickness or injury.
+          It does not provide benefits if you are fired, made redundant, or resign.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ Item -->
+    <div class="faq-item">
+      <button class="faq-question">
+        How much cover can I get?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Most insurers allow up to 70% of your gross income, plus an additional contribution
+          toward Superannuation, paid as a monthly benefit while you are unable to work.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .faq-item {
+    background:#ffffff;
+    border-radius:12px;
+    margin-bottom:16px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    overflow:hidden;
+  }
+
+  .faq-question {
+    width:100%;
+    background:none;
+    border:none;
+    padding:22px 26px;
+    font-size:18px;
+    font-weight:600;
+    text-align:left;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#000030;
+  }
+
+  .faq-question span {
+    font-size:24px;
+    transition:0.3s;
+  }
+
+  .faq-answer {
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+    padding:0 26px;
+  }
+
+  .faq-answer p {
+    padding-bottom:22px;
+    color:#333;
+    line-height:1.7;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height:200px;
+  }
+
+  .faq-item.active .faq-question span {
+    transform:rotate(45deg);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+
+<!-- FINAL CTA: WANT TO KNOW MORE -->
+<section style="background:linear-gradient(135deg,#02D9C5,#146DFF,#AD89FF); padding:80px 20px; width:100%;">
+
+  <div style="
+    max-width:900px;
+    margin:0 auto;
+    background:#ffffff;
+    padding:50px 40px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:center;
+  ">
+
+    <h2 style="font-size:32px; margin-bottom:20px; color:#000030;">
+      Want to know more? Let’s talk.
+    </h2>
+
+    <p style="
+      font-size:18px;
+      line-height:1.7;
+      margin-bottom:35px;
+      color:#333;
+      max-width:760px;
+      margin-left:auto;
+      margin-right:auto;
+    ">
+      If you are looking for long-term protection, you’ve come to the right place.
+      As trusted Australian insurance specialists, we cut through the noise to guide
+      you toward an affordable policy that fits your needs perfectly.
+    </p>
+
+    <a href="contact.html" class="btn-main">Get my Quote</a>
+
+  </div>
+
 </section>
 
 
-<section class="cta">
-  <h2>Secure Your Income Today</h2>
-  <a href="contact.html" class="btn-main">Request a Quote</a>
-</section>
 
 <footer>
-  <div style="max-width:1200px; margin:0 auto; padding:40px 20px; color:#aaa; text-align:center;">
-    <!-- Logo -->
-    <div style="margin-bottom:20px; text-align:center;">
-  <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo" style="height:80px; max-width:200px;">
-</div>
+  <div class="footer-container">
 
+    <!-- Top: Logo & Brief -->
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo">
+      </div>
+      <p class="footer-description">
+        Insureyou Advisory (ABN 21 891 330 783) operates under general advice only. We provide education and options to help you make informed decisions, but cannot give personal advice. All information on this website is for general purposes only.
+      </p>
+    </div>
 
-    <!-- Contact Info -->
-    <p>
-      12/42 King Street, Airport West VIC 3042<br>
-      01 2345 6789 | protect@insureyouadvisory.com.au<br>
-      9am to 5pm AEST
-    </p>
+    <!-- Middle: Links & Contact Info -->
+    <div class="footer-middle">
 
-    <!-- Disclaimer -->
-    <p style="font-size:0.85rem; margin:20px 0;">
-      Insureyou Advisory (ABN XX XXX XXX XXX) operates under Insure Solutions Pty Ltd (AFSL XXXXXXX) and can only give general advice about Personal Insurance. This means we provide information to help you make good decisions but cannot give personal advice or recommendations. Everything on this website is general information only.
-    </p>
-    <p style="font-size:0.85rem; margin-bottom:20px;">
-      Each insurer we partner with has its own terms and conditions. Please review the relevant insurer’s Product Disclosure Statement to see if their products meet your needs.
-    </p>
+      <!-- Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="fsg.html">Financial Services Guide</a>
+        <a href="pds.html">Product Disclosure Statements</a>
+      </div>
 
-    <!-- Legal Links -->
-    <p>
-      <a href="privacy-policy.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Privacy Policy</a> |
-      <a href="terms.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Terms and Conditions</a> |
-      <a href="fsg.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Financial Services Guide</a> |
-      <a href="pds.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Product Disclosure Statements</a>
-    </p>
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>12/42 King Street, Airport West VIC 3042 (By appointment only)</p>
+        <p>01 2345 6789 | protect@insureyouadvisory.com.au</p>
+        <p>Mon-Fri 9am to 5pm AEST</p>
+      </div>
 
-<!-- Social Media -->
-<div style="margin:20px 0;">
-<h3>FOLLOW US</h3><br>
-  <a href="https://www.facebook.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/facebook.png" alt="Facebook" style="width:32px; height:32px;">
-  </a>
-  <a href="https://www.instagram.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/instagram.png" alt="Instagram" style="width:32px; height:32px;">
-  </a>
-  <a href="https://www.linkedin.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/linkedin.png" alt="LinkedIn" style="width:32px; height:32px;">
-  </a>
-</div>
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+      </div>
 
+    </div>
 
-    <!-- Copyright -->
-    <p style="margin-top:20px;">© 2026 Insureyou Advisory. All rights reserved.</p>
+    <!-- Bottom: Copyright -->
+    <div class="footer-bottom">
+      <p>© 2026 Insureyou Advisory. All rights reserved.</p>
+    </div>
+
   </div>
 </footer>
 
