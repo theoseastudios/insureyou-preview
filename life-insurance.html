@@ -122,6 +122,61 @@ nav a{
   text-align:center;
 }
 
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  text-decoration: none;
+  color: #000030;
+  font-weight: 500;
+  padding: 0;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+/* Individual links inside dropdown */
+.dropdown-content a {
+  color: #000030;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Optional: add little arrow */
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+
 /* CTA */
 .cta{
   padding:80px;
@@ -136,12 +191,111 @@ nav a{
 }
 
 /* FOOTER */
-footer{
-  background:#000030;
-  color:#aaa;
-  text-align:center;
-  padding:40px;
+footer {
+  background: #000030;
+  color: #aaa;
+  font-family: "Inter", sans-serif;
+  padding: 60px 20px 20px;
 }
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top section */
+.footer-top {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-top .footer-logo img {
+  height: 80px;
+  max-width: 200px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Middle section: 3 columns centered */
+.footer-middle {
+  display: flex;
+  justify-content: center; /* centers all columns horizontally */
+  gap: 60px; /* space between columns */
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-middle div {
+  flex: 0 1 200px; /* fixed min width but allows wrapping */
+  text-align: left; /* center content inside each column */
+}
+
+
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-links a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #02D9C5;
+}
+
+.footer-contact p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.footer-social .social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social .social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Bottom section */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-middle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-middle div {
+    margin-bottom: 25px;
+  }
+}
+
 </style>
 </head>
 
@@ -150,16 +304,24 @@ footer{
 <header>
   <div class="logo">
     <a href="index.html">
-  <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
-</a>
+      <img src="images/insureyou-logo.png" alt="Insureyou Advisory Logo">
+    </a>
   </div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="insurances.html">Insurances</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <!-- Dropdown for Insurances -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Insurances</a>
+      <div class="dropdown-content">
+        <a href="life-insurance.html">Life Insurance</a>
+        <a href="income-protection.html">Income Protection</a>
+        <a href="tpd-insurance.html">Total & Permanent Disability</a>
+        <a href="critical-illness.html">Trauma (Critical Illness)</a>
+      </div>
+    </div>
     <a href="partners.html">Partners</a>
+    <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn-main">Get a Quote</a>
   </nav>
 </header>
@@ -398,7 +560,7 @@ footer{
     <h2>Getting covered is easier than you think</h2>
 
     <div style="margin:20px 0 50px;">
-      <a href="contact.html" class="btn-main">Request a Quote</a>
+      <a href="contact.html" class="btn-main">Get In Touch</a>
     </div>
 
     <!-- STEPS GRID -->
@@ -406,7 +568,7 @@ footer{
 
       <!-- Step 1 -->
       <div style="background:#ffffff; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
-        <h3>1. We do the legwork</h3>
+        <h3>1. We do the legwork</h3><br>
         <p>
           Skip the hours of research. We chat about your life, then scan the market to find the best policy for your
           budget. We’ll even review your current cover to see if we can beat it.
@@ -415,7 +577,7 @@ footer{
 
       <!-- Step 2 -->
       <div style="background:#ffffff; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
-        <h3>2. We handle the paperwork</h3>
+        <h3>2. We handle the paperwork</h3><br>
         <p>
           Once you pick a policy, we guide you through the application. We handle the forms and admin to make sure
           everything is accurate and you aren't bogged down in red tape.
@@ -424,7 +586,7 @@ footer{
 
       <!-- Step 3 -->
       <div style="background:#ffffff; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
-        <h3>3. We get you approved</h3>
+        <h3>3. We get you approved</h3><br>
         <p>
           We deal with the insurer directly, negotiating on your behalf to secure the best possible terms and get
           your policy active as fast as possible.
@@ -433,7 +595,7 @@ footer{
 
       <!-- Step 4 -->
       <div style="background:#ffffff; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
-        <h3>4. We’re here for the long haul</h3>
+        <h3>4. We’re here for the long haul</h3><br>
         <p>
           We don’t disappear once you're signed up. If you ever need to claim, we advocate for you. Once approved,
           funds are usually in your account within 5–10 business days.
@@ -447,52 +609,54 @@ footer{
 </section>
 
 <section style="background:#f7f9ff; padding:80px 20px; width:100%;">
+  <!-- Section Header -->
+  <div style="max-width:1000px; margin:0 auto; text-align:center; margin-bottom:40px;">
+    <h2 style="font-size:32px; margin-bottom:20px;">Already have cover? We’re here to help.</h2>
+  </div>
 
-  <div style="max-width:1000px; margin:0 auto; text-align:center;">
+  <!-- Cards container -->
+  <div style="max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px;">
 
-    <h2>Already have cover? We’re here to help.</h2>
+    <!-- Left Card: Manage Your Policy -->
+    <div style="flex:1; min-width:300px; display:flex; flex-direction:column; align-items:stretch;">
+      <div style="background:#ffffff; padding:40px; border-radius:12px; text-align:left; box-sizing:border-box; flex:1;">
+        <h3>Manage Your Policy</h3>
+        <p style="line-height:1.6; margin-bottom:0;">
+          Life changes, and your insurance should too. Whether you need to update your
+          beneficiaries, adjust your cover, or just check your premiums, give us a call — 
+          we’ll handle the paperwork for you.
+        </p>
+      </div>
+      <br>
+      <!-- Button left-aligned outside the box -->
+      <div style="margin-top:15px; margin-bottom:40px; text-align:left;">
+        <a href="tel:+61XXXXXXXXX" class="btn-main">Call Us Now</a>
+      </div>
+    </div>
 
-    <h3 style="margin-top:10px;">Manage Your Policy</h3>
-
-    <p style="max-width:750px; margin:20px auto 40px; line-height:1.6;">
-      Life changes, and your insurance should too. Whether you need to update your
-      beneficiaries, adjust your cover, or just check your premiums, give us a call —
-      we’ll handle the paperwork for you.
-    </p>
-
-<div>    
-<a href="tel:+61XXXXXXXXX" class="btn-main">Call Us Now</a>
+    <!-- Right Card: Make A Claim -->
+    <div style="flex:1; min-width:300px; display:flex; flex-direction:column; align-items:stretch;">
+      <div style="background:#ffffff; padding:40px; border-radius:12px; text-align:left; box-sizing:border-box; flex:1;">
+        <h3>Make A Claim</h3>
+        <p style="line-height:1.6; margin-bottom:0;">
+          This is the moment that matters most. If you need to claim, don't stress about
+          the forms. We advocate for you, managing the entire process from start to finish
+          to ensure you get paid quickly and fairly.
+        </p>
+      </div>
+      <br>
+      <!-- Button left-aligned outside the box -->
+      <div style="margin-top:15px; margin-bottom:40px; text-align:left;">
+        <a href="claims-process.html" class="btn-main">Make a Claim</a>
+      </div>
     </div>
 
   </div>
-
 </section>
+
 
 
 <section style="background:#ffffff; padding:80px 20px; width:100%;">
-
-  <div style="max-width:1000px; margin:0 auto; text-align:center;">
-
-    <h2>Make A Claim</h2>
-
-    <p style="max-width:780px; margin:20px auto 40px; line-height:1.6;">
-      This is the moment that matters most. If you need to claim, don't stress about
-      the forms. We advocate for you, managing the entire process from start to finish
-      to ensure you get paid quickly and fairly.
-    </p>
-
-<div>    
-<a href="claims-process.html" class="btn-main">
-      Make a Claim
-</a>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section style="background:#f7f9ff; padding:80px 20px; width:100%;">
   <div style="max-width:1000px; margin:0 auto; text-align:left;">
 
     <h2 style="text-align:center; margin-bottom:40px;">So, what does it actually cost?</h2>
@@ -567,6 +731,56 @@ footer{
 </section>
 
 
+<!-- HOW TO LOWER YOUR PREMIUM -->
+<section style="background:#f7f9ff; padding:80px 20px; width:100%;">
+  <div style="max-width:1000px; margin:0 auto; text-align:center;">
+    <h2 style="font-size:32px; margin-bottom:40px;">How to Lower Your Premium</h2>
+
+    <!-- Tips Grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; text-align:left;">
+
+      <!-- Tip 1 -->
+      <div style="background:#ffffff; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
+        <h3 style="margin-bottom:15px; color:#02D9C5;">1. Bundle it up</h3>
+        <p>Don't buy piecemeal. Combine your Life Insurance with Income Protection or Trauma cover. It is almost always cheaper than buying separate policies—often saving you up to 15%.</p>
+      </div>
+
+      <!-- Tip 2 -->
+      <div style="background:#ffffff; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
+        <h3 style="margin-bottom:15px; color:#02D9C5;">2. The "Partner" perk</h3>
+        <p>Sorting it for two? Apply with your spouse at the same time. Most insurers offer a "multi-life" discount that knocks the price down for both of you.</p>
+      </div>
+
+      <!-- Tip 3 -->
+      <div style="background:#ffffff; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
+        <h3 style="margin-bottom:15px; color:#02D9C5;">3. Insider access</h3>
+        <p>We see deals the public doesn't. As brokers, we access special campaigns and negotiated rates that you simply can’t find on Google.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WANT TO KNOW MORE SECTION -->
+<section style="background:#ffffff; padding:80px 20px; width:100%;">
+  <div style="max-width:900px; margin:0 auto; background:white; padding:40px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:left;">
+    
+    <center><h2 style="font-size:32px; margin-bottom:20px;">Want to know more? Let's talk.</h2>
+    
+    <p style="font-size:18px; line-height:1.6; margin-bottom:30px;">
+      If you are looking for long-term protection, you’ve come to the right place. 
+      As trusted Australian insurance specialists, we cut through the noise to guide 
+      you toward an affordable policy that fits your needs perfectly.
+    </p>
+    
+    <a href="tel:+61XXXXXXXXX" class="btn-main" style="margin-top:20px; display:inline-block;">Book a Call</a>
+    
+  </div>
+</center>
+</section>
+
+
 
 <section class="cta">
   <h2>Get Your Life Insurance Quote Today</h2>
@@ -574,56 +788,57 @@ footer{
 </section>
 
 <footer>
-  <div style="max-width:1200px; margin:0 auto; padding:40px 20px; color:#aaa; text-align:center;">
-    <!-- Logo -->
-    <div style="margin-bottom:20px; text-align:center;">
-  <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo" style="height:80px; max-width:200px;">
-</div>
+  <div class="footer-container">
 
+    <!-- Top: Logo & Brief -->
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="images/insureyou-logo-dark.png" alt="Insureyou Advisory Logo">
+      </div>
+      <p class="footer-description">
+        Insureyou Advisory (ABN 21 891 330 783) operates under general advice only. We provide education and options to help you make informed decisions, but cannot give personal advice. All information on this website is for general purposes only.
+      </p>
+    </div>
 
-    <!-- Contact Info -->
-    <p>
-      12/42 King Street, Airport West VIC 3042<br>
-      01 2345 6789 | protect@insureyouadvisory.com.au<br>
-      9am to 5pm AEST
-    </p>
+    <!-- Middle: Links & Contact Info -->
+    <div class="footer-middle">
 
-    <!-- Disclaimer -->
-    <p style="font-size:0.85rem; margin:20px 0;">
-      Insureyou Advisory (ABN XX XXX XXX XXX) operates under Insure Solutions Pty Ltd (AFSL XXXXXXX) and can only give general advice about Personal Insurance. This means we provide information to help you make good decisions but cannot give personal advice or recommendations. Everything on this website is general information only.
-    </p>
-    <p style="font-size:0.85rem; margin-bottom:20px;">
-      Each insurer we partner with has its own terms and conditions. Please review the relevant insurer’s Product Disclosure Statement to see if their products meet your needs.
-    </p>
+      <!-- Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="fsg.html">Financial Services Guide</a>
+        <a href="pds.html">Product Disclosure Statements</a>
+      </div>
 
-    <!-- Legal Links -->
-    <p>
-      <a href="privacy-policy.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Privacy Policy</a> |
-      <a href="terms.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Terms and Conditions</a> |
-      <a href="fsg.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Financial Services Guide</a> |
-      <a href="pds.html" style="color:#aaa; text-decoration:underline; margin:0 5px;">Product Disclosure Statements</a>
-    </p>
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>12/42 King Street, Airport West VIC 3042 (By appointment only)</p>
+        <p>01 2345 6789 | protect@insureyouadvisory.com.au</p>
+        <p>Mon-Fri 9am to 5pm AEST</p>
+      </div>
 
-<!-- Social Media -->
-<div style="margin:20px 0;">
-<h3>FOLLOW US</h3><br>
-  <a href="https://www.facebook.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/facebook.png" alt="Facebook" style="width:32px; height:32px;">
-  </a>
-  <a href="https://www.instagram.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/instagram.png" alt="Instagram" style="width:32px; height:32px;">
-  </a>
-  <a href="https://www.linkedin.com/" target="_blank" style="margin:0 10px;">
-    <img src="images/linkedin.png" alt="LinkedIn" style="width:32px; height:32px;">
-  </a>
-</div>
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+      </div>
 
+    </div>
 
-    <!-- Copyright -->
-    <p style="margin-top:20px;">© 2026 Insureyou Advisory. All rights reserved.</p>
+    <!-- Bottom: Copyright -->
+    <div class="footer-bottom">
+      <p>© 2026 Insureyou Advisory. All rights reserved.</p>
+    </div>
+
   </div>
 </footer>
-
 
 </body>
 </html>
